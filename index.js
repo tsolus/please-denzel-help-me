@@ -1,12 +1,19 @@
 // Q1. Create a variable called `denzel` - that can't be redeclared - and assign it the string 'please denzel, help me'
+const denzel = 'please denzel, help me';
 
 // Q2. Use the variable `actor` to create a new variable called `inspirational` that is assigned the string "Is Denzel Washington an inspirational actor?"
 const actor = 'Denzel Washington';
+const inspirational = 'Is '+actor+' an inspirational actor?'
 
 // Q3  Create an object called `family` and give it the following properties:
 // family has been `married` on "1983" (Number)
 // family is not `presidentOfTheUnitedStates` (boolean)
 // family has `children` called "John David", "Katia", "Olivia" and "Malcolm" (array of strings)
+const family = {
+  'married': 1983,
+  'presidentOfTheUnitedStates': false,
+  'children': ['John David', 'Katia', 'Olivia', 'Malcolm']
+};
 
 // Q4. Change
 // * the `name` stage to "A Raisin in the Sun"
@@ -17,10 +24,15 @@ const stage = {
   'year': '2010'
 };
 
+family.name = 'A Raisin in the Sun';
+family.year = 2014;
+
 // Q5. Change the `movie` "glory" to "Training Day" using square bracket notation
 const awards = {
   'movie': 'glory'
 };
+
+awards['movie']= 'Training Day'
 
 // Q6. Create an object called "earlywork"
 // The key should be the movie name and the value the release year
@@ -31,8 +43,20 @@ const awards = {
 // * Cry Freedom (1987)
 // * For Queen and Countryy (1988)
 
+const earlywork = {
+  'Carbon Copy' : 1981, 
+  'A Soldier Story' : 1984, 
+  'Power': 1986, 
+  'Cry Freedom': 1987, 
+  'For Queen and Country': 1988
+};
+
 // Q7. Return a new array from `debaters` with all item in uppercase
 const debaters = ['we do', 'what we have to do', 'in order to do', 'what we want to do'];
+
+const upper = debaters.map(element => {
+  return element.toUpperCase();
+});
 
 // Q8. Using this array.
 // Do the following 5 steps
