@@ -81,7 +81,9 @@ const thirdDirector=directors[2];
 // Q9. Write the function `duplicate` that return the expected result
 console.log(duplicate(['Happily', 'Ever', 'After', 'Fairy', 'Tales', 'for', 'Every', 'Child']));
 // ❯ ['Happily', 'Ever', 'After', 'Fairy', 'Tales', 'for', 'Every', 'Child', 'Happily', 'Ever', 'After', 'Fairy', 'Tales', 'for', 'Every', 'Child']
-
+function ducplicate(a){
+  return a.push.apply(a, a)
+}
 
 // Q10. Refactor the current ES5-style function `police` in ES6-style.
 const police = function (names) {
