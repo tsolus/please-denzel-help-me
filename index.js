@@ -72,8 +72,7 @@ const firstDirector= directors.splice(0,1);
 directors.unshift('himself');
 
 // 4. remove "ridleyscott" value from the array and store it in a variable called secondDirector
-directors.shift();
-const secondDirector = directors.splice(1,1);;
+const secondDirector = directors.splice(1,1);
 
 // 5. let 'zemeckis' in the array but put a copy of it on a variable called thirdDirector
 const thirdDirector=directors[2];
@@ -104,12 +103,19 @@ console.log(police(chorus));
 // Q11. Related to the https://www.tvmaze.com/people/66167/denzel-washington link
 // What's the query selector to get all Cast Credits titles (Live with Kelly & Ryan, The Late Show with Stephen Colbert...).
 
+document.querySelector('#credits > div > article:nth-child(2) > div > div > strong > a')
+
 // Q12. Related to the https://www.tvmaze.com/people/66167/denzel-washington link
 // How many http requests are performed to render the page?
+
+//32 requests are performed to render the page according to the Network tool in the inspector.
 
 // Q13. Related to the following api call with "curl"
 // ❯ curl "http://api.tvmaze.com/people/6616"
 // Could you describe and explain the response?
+
+// The response is a json object containing data about the actor Zach Shirey. Specifically, you can find an ID, the URL to the tvmaze profile, the name and the gender of the actor, an image in two different resolutions, an update ID and an other URL
+
 
 // Q14. Refactor the following codebase with a promise notation
 fs.readFile(filePath, function(err, data) {
@@ -123,27 +129,39 @@ fs.readFile(filePath, function(err, data) {
 })
 
 // Q15. Refactor the following codebase with async/await notation
-fetch('http://api.tvmaze.com/search/people?q=denzel+washington')
+
+const refactor = async() => {
+  try{
+  fetch('http://api.tvmaze.com/search/people?q=denzel+washington')
   .then(response => {
-    return response.json();
+    return await response.json();
   })
   .then(data => {
     const {person} = data[0];
     const {id} = person;
 
-    return fetch(`http://api.tvmaze.com/people/${id}/castcredits?embed=show`);
+    return await fetch(`http://api.tvmaze.com/people/${id}/castcredits?embed=show`);
   })
   .then(response => {
-    return response.json();
+    return await response.json();
   })
   .then(console.log);
-
+  }
+  catch(error){
+    console.error(error);
+  }
+}
 // Q16. Give me at least 3 memorable websites that engage to continue (because of nice UX/UI AND avoid to give me facebook, airbnb etc...)
+//https://www.thomann.de/gb/index.html  https://www.w3schools.com/  https://www.vinted.fr/ 
 
 // Q17. Describe an ESILV project that you worked on that you’re proud of?
+// For our 2nd year, I had the chance to build a bouldering wall which could display different routes using LED lights underneath each hold. We added multiple difficulties in order for the project to be enjoyable by beginers and advanced climbers.
 
 // Q18. Describe an ESILV project that you worked on that you’re not so proud of?
+// I am not so proud of my Web Aplications' project because I could not find the motivation to put my all to it even if the project was much interesting and usefull for my professional life.
 
 // Q19. What are some things you like about the developer tools you use?
+// What I like about my developer tools are mostly the recommandations of functions while I am coding and the visual personalization depending on the light around me.
 
 // Q20. Last question: could you explain me - in your terms - why the title of the course is "Web Application Architecture(s)" and not "Web Application Architecture"?
+// To me, the s is explained by the multiple different solutions to a single problem.
